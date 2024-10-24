@@ -17,6 +17,9 @@ module.exports = {
         slate700: "hsl(200, 24%, 40%)",
         slate900: "hsl(202, 55%, 16%)",
       },
+      textDecorationThickness: {
+        "1/2": "1.5px",
+      },
     },
     fontFamily: {
       PlusJakartaSans: ["PlusJakartaSans", "sans-serif"],
