@@ -12,7 +12,7 @@ function RadioInput() {
           id="repayment"
           type="radio"
           name="mortgage-type"
-          className="peer z-20 flex items-center justify-center w-4 h-4 accent-lime appearance-none border-2 border-slate700 checked:border-lime rounded-full checked:border-transparent focus:outline-none before:h-2 before:w-2 before:bg-lime before:content-[''] before:rounded before:hidden checked:before:block"
+          className="peer z-20 flex items-center justify-center w-4 h-4 accent-lime appearance-none border-2 border-slate700 checked:border-lime rounded-full focus:outline-none before:h-2 before:w-2 before:bg-lime before:content-[''] before:rounded before:hidden checked:before:block"
         />
         <label
           htmlFor="repayment"
@@ -29,7 +29,7 @@ function RadioInput() {
           type="radio"
           value=""
           name="mortgage-type"
-          className="peer z-20 flex items-center justify-center w-4 h-4 accent-lime appearance-none border-2 border-slate700 checked:border-lime rounded-full checked:border-transparent focus:outline-none before:h-2 before:w-2 before:bg-lime before:content-[''] before:rounded before:hidden checked:before:block"
+          className="peer z-20 flex items-center justify-center w-4 h-4 accent-lime appearance-none border-2 border-slate700 checked:border-lime rounded-full focus:outline-none before:h-2 before:w-2 before:bg-lime before:content-[''] before:rounded before:hidden checked:before:block"
         />
         <label
           htmlFor="intrest-only"
