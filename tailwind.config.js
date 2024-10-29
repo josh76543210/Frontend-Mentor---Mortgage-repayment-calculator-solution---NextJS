@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         lime: "hsl(61, 70%, 52%)",
+        limeT: "hsl(61, 70%, 92%)",
         red: "hsl(4, 69%, 50%)",
         white: "hsl(0, 0%, 100%)",
         slate100: "hsl(202, 86%, 94%)",
