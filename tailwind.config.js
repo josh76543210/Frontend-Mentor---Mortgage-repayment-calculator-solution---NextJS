@@ -17,6 +17,7 @@ module.exports = {
         slate500: "hsl(200, 26%, 54%)",
         slate700: "hsl(200, 24%, 40%)",
         slate900: "hsl(202, 55%, 16%)",
+        slate950: "hsl(202, 55%, 10%)",
       },
       textDecorationThickness: {
         "1/2": "1.5px",
