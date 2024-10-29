@@ -6,10 +6,12 @@ import Image from "next/image";
 
 function CalculatorContainer() {
   return (
-    <div className="px-5 py-7 font-semibold flex-shrink-0 lg:max-w-md">
+    <div className="px-5 py-7 font-semibold flex-shrink-0 lg:max-w-md lg:p-10">
       <form action="">
         <div className="3sm:flex items-baseline justify-between">
-          <h1 className="font-bold text-2xl mb-2">Mortgage Calculator</h1>
+          <h1 className="font-bold text-2xl mb-2 lg:mb-8">
+            Mortgage Calculator
+          </h1>
           <button
             type="reset"
             className="underline underline-offset-3 decoration-1/2 text-slate700 mb-6"
@@ -39,7 +41,7 @@ function CalculatorContainer() {
             unitReverse
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 lg:mb-8">
           <label
             htmlFor="mortgage-type"
             className="text-slate700 mb-2 inline-block"
@@ -51,7 +53,7 @@ function CalculatorContainer() {
         </div>
         <button
           type="submit"
-          className="flex items-center justify-center bg-lime w-full rounded-full p-3 font-extrabold"
+          className="flex items-center justify-center bg-lime w-full rounded-full p-3 font-extrabold lg:w-auto lg:px-7"
         >
           <Image src={caculatorIcon} alt="" className="inline-block mr-3" />
           Calculate Repayments
