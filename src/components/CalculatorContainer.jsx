@@ -39,7 +39,16 @@ function CalculatorContainer() {
             unitReverse
           />
         </div>
-        <RadioInput />
+        <div className="mb-4">
+          <label
+            htmlFor="mortgage-type"
+            className="text-slate700 mb-2 inline-block"
+          >
+            Mortgage Type
+          </label>
+          <RadioInput title="Repayment" id="repayment" />
+          <RadioInput title="Intrest Only" id="intrest-only" />
+        </div>
         <button
           type="submit"
           className="flex items-center justify-center bg-lime w-full rounded-full p-3 font-extrabold"
