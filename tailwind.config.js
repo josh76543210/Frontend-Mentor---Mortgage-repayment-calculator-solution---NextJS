@@ -19,8 +19,17 @@ module.exports = {
         slate900: "hsl(202, 55%, 16%)",
         slate950: "hsl(202, 55%, 10%)",
       },
+      screens: {
+        "2sm": "550px",
+        // => @media (min-width: 550px) { ... }
+        "3sm": "400px",
+        // => @media (min-width: 400px) { ... }
+      },
       textDecorationThickness: {
         "1/2": "1.5px",
+      },
+      borderRadius: {
+        xxl: "4rem",
       },
     },
     fontFamily: {

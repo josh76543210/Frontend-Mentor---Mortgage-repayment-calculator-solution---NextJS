@@ -1,6 +1,6 @@
 function ResultsContainer() {
   return (
-    <div className="bg-slate900 text-white py-8 px-4">
+    <div className="bg-slate900 text-white py-8 px-4 lg:rounded-bl-xxl">
       <h2 className="font-bold text-xl mb-4">Your results</h2>
       <p className="text-slate300 mb-4">
         Your results are shown below based on the information you provided. To

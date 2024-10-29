@@ -6,22 +6,24 @@ import Image from "next/image";
 
 function CalculatorContainer() {
   return (
-    <div className="px-5 py-7 font-semibold">
-      <h1 className="font-bold text-2xl mb-2">Mortgage Calculator</h1>
+    <div className="px-5 py-7 font-semibold flex-shrink-0 lg:max-w-md">
       <form action="">
-        <button
-          type="reset"
-          className="underline underline-offset-3 decoration-1/2 text-slate700 mb-6"
-        >
-          Clear All
-        </button>
+        <div className="3sm:flex items-baseline justify-between">
+          <h1 className="font-bold text-2xl mb-2">Mortgage Calculator</h1>
+          <button
+            type="reset"
+            className="underline underline-offset-3 decoration-1/2 text-slate700 mb-6"
+          >
+            Clear All
+          </button>
+        </div>
         <TextIntput
           title="Mortgage Amount"
           id="mortgage-amount"
           value="300,000"
           unit="$"
         />
-        <div>
+        <div className="3sm:flex 3sm:gap-5">
           <TextIntput
             title="Mortgage Term"
             id="mortgage-term"
