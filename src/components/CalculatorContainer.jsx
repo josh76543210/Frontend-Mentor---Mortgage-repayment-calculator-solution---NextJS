@@ -15,8 +15,15 @@ function CalculatorContainer() {
     setFormState((prev) => ({ ...prev, results: !prev.results }));
   }
 
-  function handleReset() {
-    setFormState((prev) => ({ ...prev, results: false }));
+  function handleReset(e) {
+    e.preventDefault();
+    setFormState({
+      mortgageAmount: "",
+      mortgageTerm: "",
+      intrestRate: "",
+      mortgageType: "",
+      results: false,
+    });
   }
 
   function getDecimalPlaces(num) {
