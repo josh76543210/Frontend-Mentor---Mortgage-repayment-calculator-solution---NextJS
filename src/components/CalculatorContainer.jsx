@@ -27,7 +27,6 @@ function CalculatorContainer() {
 
   function handleAmountInput(e) {
     const newNum = e.target.value.trim();
-    console.log(newNum);
     if (!isNaN(newNum) && getDecimalPlaces(newNum) < 3) {
       setFormState((prev) => ({
         ...prev,
@@ -38,30 +37,20 @@ function CalculatorContainer() {
 
   function handleTermInput(e) {
     const newNum = e.target.value;
-    if (isNaN(newNum)) {
+    if (!isNaN(newNum) && getDecimalPlaces(newNum) < 1) {
       setFormState((prev) => ({
         ...prev,
-        mortgageAmount: 0,
-      }));
-    } else {
-      setFormState((prev) => ({
-        ...prev,
-        mortgageAmount: newNum,
+        mortgageTerm: newNum.replace(".", ""),
       }));
     }
   }
 
   function handleRateInput(e) {
     const newNum = e.target.value;
-    if (isNaN(newNum)) {
+    if (!isNaN(newNum) && newNum <= 100) {
       setFormState((prev) => ({
         ...prev,
-        mortgageAmount: 0,
-      }));
-    } else {
-      setFormState((prev) => ({
-        ...prev,
-        mortgageAmount: newNum,
+        intrestRate: newNum,
       }));
     }
   }
