@@ -8,7 +8,7 @@ import caculatorIcon from "../images/icon-calculator.svg";
 import Image from "next/image";
 
 function CalculatorContainer() {
-  const { setFormState } = useFormData();
+  const { formState, setFormState } = useFormData();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,6 +17,53 @@ function CalculatorContainer() {
 
   function handleReset() {
     setFormState((prev) => ({ ...prev, results: false }));
+  }
+
+  function getDecimalPlaces(num) {
+    const str = num.toString();
+    const decimalPart = str.split(".")[1];
+    return decimalPart ? decimalPart.length : 0;
+  }
+
+  function handleAmountInput(e) {
+    const newNum = e.target.value.trim();
+    console.log(newNum);
+    if (!isNaN(newNum) && getDecimalPlaces(newNum) < 3) {
+      setFormState((prev) => ({
+        ...prev,
+        mortgageAmount: newNum,
+      }));
+    }
+  }
+
+  function handleTermInput(e) {
+    const newNum = e.target.value;
+    if (isNaN(newNum)) {
+      setFormState((prev) => ({
+        ...prev,
+        mortgageAmount: 0,
+      }));
+    } else {
+      setFormState((prev) => ({
+        ...prev,
+        mortgageAmount: newNum,
+      }));
+    }
+  }
+
+  function handleRateInput(e) {
+    const newNum = e.target.value;
+    if (isNaN(newNum)) {
+      setFormState((prev) => ({
+        ...prev,
+        mortgageAmount: 0,
+      }));
+    } else {
+      setFormState((prev) => ({
+        ...prev,
+        mortgageAmount: newNum,
+      }));
+    }
   }
 
   return (
@@ -36,23 +83,26 @@ function CalculatorContainer() {
         <TextIntput
           title="Mortgage Amount"
           id="mortgage-amount"
-          value="300,000"
+          value={formState.mortgageAmount}
           unit="$"
+          onChange={handleAmountInput}
         />
         <div className="3sm:flex 3sm:gap-5">
           <TextIntput
             title="Mortgage Term"
             id="mortgage-term"
-            value="25"
+            value={formState.mortgageTerm}
             unit="years"
             unitReverse
+            onChange={handleTermInput}
           />
           <TextIntput
             title="Intrest Rate"
             id="intrest-rate"
-            value="5.25"
+            value={formState.intrestRate}
             unit="%"
             unitReverse
+            onChange={handleRateInput}
           />
         </div>
         <div className="mb-4 lg:mb-8">

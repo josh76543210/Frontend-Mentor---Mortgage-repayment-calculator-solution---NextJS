@@ -3,6 +3,7 @@ function TextInput({
   title,
   value,
   unit,
+  onChange = () => {},
   unitReverse = false,
   labelClass = "",
   inputClass = "",
@@ -24,6 +25,7 @@ function TextInput({
           className="px-4 py-2 w-full font-bold"
           id={id}
           value={value}
+          onChange={onChange}
         />
         {unitReverse && (
           <span className="bg-slate100 px-4 flex justify-center items-center text-lg text-slate700">

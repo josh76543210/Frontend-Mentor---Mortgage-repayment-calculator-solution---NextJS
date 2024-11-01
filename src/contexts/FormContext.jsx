@@ -2,9 +2,9 @@
 import { createContext, useState, useContext } from "react";
 
 const initialState = {
-  mortgageAmount: 0,
-  mortgageTerm: 0,
-  intrestRate: 0,
+  mortgageAmount: "",
+  mortgageTerm: "",
+  intrestRate: "",
   mortgageType: "",
   results: false,
 };
