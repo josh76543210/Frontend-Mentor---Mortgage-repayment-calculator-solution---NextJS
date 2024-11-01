@@ -1,3 +1,6 @@
+"use client";
+import { useFormData } from "../contexts/FormContext";
+
 import RadioInput from "./RadioInput";
 import TextIntput from "./TextInput";
 
@@ -5,9 +8,16 @@ import caculatorIcon from "../images/icon-calculator.svg";
 import Image from "next/image";
 
 function CalculatorContainer() {
+  const { setFormState } = useFormData();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setFormState((prev) => ({ ...prev, results: !prev.results }));
+  }
+
   return (
     <div className="px-5 py-7 font-semibold flex-shrink-0 lg:max-w-md lg:p-10">
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div className="3sm:flex items-baseline justify-between">
           <h1 className="font-bold text-2xl mb-2 lg:mb-8">
             Mortgage Calculator
