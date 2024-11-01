@@ -15,9 +15,13 @@ function CalculatorContainer() {
     setFormState((prev) => ({ ...prev, results: !prev.results }));
   }
 
+  function handleReset() {
+    setFormState((prev) => ({ ...prev, results: false }));
+  }
+
   return (
     <div className="px-5 py-7 font-semibold flex-shrink-0 lg:max-w-md lg:p-10">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onReset={handleReset}>
         <div className="3sm:flex items-baseline justify-between">
           <h1 className="font-bold text-2xl mb-2 lg:mb-8">
             Mortgage Calculator
