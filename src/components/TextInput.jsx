@@ -14,7 +14,7 @@ function TextInput({
       <label htmlFor={id} className="text-slate700 mb-2 inline-block">
         {title}
       </label>
-      <div className="flex border rounded-md border-slate900 mb-4 overflow-hidden">
+      <div className="flex border rounded-md border-slate700 mb-4 overflow-hidden hover:border-slate900">
         {unitReverse || (
           <span className="bg-slate100 px-4 flex justify-center items-center text-lg text-slate700">
             {unit}
@@ -22,7 +22,7 @@ function TextInput({
         )}
         <input
           type="text"
-          className="px-4 py-2 w-full font-bold"
+          className="px-4 py-2 w-full font-bold focus-visible:outline-none"
           id={id}
           value={value}
           onChange={onChange}

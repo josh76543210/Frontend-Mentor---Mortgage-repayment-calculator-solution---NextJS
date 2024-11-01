@@ -71,7 +71,7 @@ function CalculatorContainer() {
           </h1>
           <button
             type="reset"
-            className="underline underline-offset-3 decoration-1/2 text-slate700 mb-6"
+            className="underline underline-offset-3 decoration-1/2 text-slate700 mb-6 hover:text-slate900"
           >
             Clear All
           </button>
@@ -113,7 +113,7 @@ function CalculatorContainer() {
         </div>
         <button
           type="submit"
-          className="flex items-center justify-center bg-lime w-full rounded-full p-3 font-extrabold lg:w-auto lg:px-7"
+          className="flex items-center justify-center bg-lime w-full rounded-full p-3 font-extrabold lg:w-auto lg:px-7 hover:bg-limeH"
         >
           <Image src={caculatorIcon} alt="" className="inline-block mr-3" />
           Calculate Repayments
