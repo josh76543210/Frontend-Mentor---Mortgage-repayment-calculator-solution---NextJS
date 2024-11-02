@@ -6,21 +6,12 @@ import TextIntput from "./TextInput";
 
 import caculatorIcon from "../images/icon-calculator.svg";
 import Image from "next/image";
-import { useEffect } from "react";
-import numberWithCommas from "@/utils/numberWithCommas";
+
+import numberWithCommas from "../utils/numberWithCommas";
+import getDecimalPlaces from "../utils/getDecimalPlaces";
 
 function CalculatorContainer() {
   const { formState, setFormState } = useFormData();
-
-  useEffect(() => {
-    if (
-      formState.errors.amount ||
-      formState.errors.term ||
-      formState.errors.rate ||
-      formState.errors.type
-    )
-      formState.showResults = false;
-  }, [formState]);
 
   function checkInputErrors() {
     // check for valid mortgage amount
@@ -102,12 +93,6 @@ function CalculatorContainer() {
         type: false,
       },
     });
-  }
-
-  function getDecimalPlaces(num) {
-    const str = num.toString();
-    const decimalPart = str.split(".")[1];
-    return decimalPart ? decimalPart.length : 0;
   }
 
   function handleAmountInput(e) {
