@@ -1,10 +1,19 @@
 "use client";
+import numberWithCommas from "@/utils/numberWithCommas";
 import { useFormData } from "../contexts/FormContext";
 import EmptyIllustration from "../images/illustration-empty.svg";
 import Image from "next/image";
 
 function ResultsContainer() {
   const { formState } = useFormData();
+
+  // calculate monthly payments
+  const loanPrinciple = Number(formState.mortgageAmount);
+  const months = Number(formState.mortgageTerm) * 12;
+  const intrest = Number(formState.intrestRate) / 100 / 12;
+  const monthlyPayments =
+    (loanPrinciple * (intrest * (1 + intrest) ** months)) /
+    ((1 + intrest) ** months - 1);
 
   return (
     <div className="bg-slate900 text-white py-8 px-5 lg:rounded-bl-xxl lg:p-10 lg:flex flex-col justify-center">
@@ -22,14 +31,16 @@ function ResultsContainer() {
                 Your monthly repayments
               </p>
               <p className="mb-4 text-4xl font-bold text-lime lg:mb-8">
-                $1,797.74
+                ${numberWithCommas(monthlyPayments.toFixed(2))}
               </p>
             </div>
             <div>
               <p className="text-slate300 mb-2 lg:mb-4">
                 Total you&apos;ll repay over the term
               </p>
-              <p className="mb-1 text-2xl font-bold">$539,322.94</p>
+              <p className="mb-1 text-2xl font-bold">
+                ${numberWithCommas((monthlyPayments * months).toFixed(2))}
+              </p>
             </div>
           </div>
         </>

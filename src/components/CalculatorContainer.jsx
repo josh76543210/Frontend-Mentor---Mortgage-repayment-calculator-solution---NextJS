@@ -7,6 +7,7 @@ import TextIntput from "./TextInput";
 import caculatorIcon from "../images/icon-calculator.svg";
 import Image from "next/image";
 import { useEffect } from "react";
+import numberWithCommas from "@/utils/numberWithCommas";
 
 function CalculatorContainer() {
   const { formState, setFormState } = useFormData();
@@ -111,10 +112,13 @@ function CalculatorContainer() {
 
   function handleAmountInput(e) {
     const newNum = e.target.value.trim();
-    if (!isNaN(newNum) && getDecimalPlaces(newNum) < 3) {
+    if (
+      !isNaN(newNum.replace(",", "")) &&
+      getDecimalPlaces(newNum.replace(",", "")) < 3
+    ) {
       setFormState((prev) => ({
         ...prev,
-        mortgageAmount: newNum,
+        mortgageAmount: newNum.replace(",", ""),
       }));
     }
   }
@@ -156,7 +160,7 @@ function CalculatorContainer() {
         <TextIntput
           title="Mortgage Amount"
           id="mortgage-amount"
-          value={formState.mortgageAmount}
+          value={numberWithCommas(formState.mortgageAmount)}
           unit="$"
           onChange={handleAmountInput}
           showError={formState.errors.amount}
