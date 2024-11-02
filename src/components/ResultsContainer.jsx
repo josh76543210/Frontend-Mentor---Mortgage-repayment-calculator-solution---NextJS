@@ -11,9 +11,16 @@ function ResultsContainer() {
   const loanPrinciple = Number(formState.mortgageAmount);
   const months = Number(formState.mortgageTerm) * 12;
   const intrest = Number(formState.intrestRate) / 100 / 12;
-  const monthlyPayments =
-    (loanPrinciple * (intrest * (1 + intrest) ** months)) /
-    ((1 + intrest) ** months - 1);
+
+  let monthlyPayments;
+  if (formState.mortgageType == "repayment") {
+    monthlyPayments =
+      (loanPrinciple * (intrest * (1 + intrest) ** months)) /
+      ((1 + intrest) ** months - 1);
+  }
+  if (formState.mortgageType == "intrest-only") {
+    monthlyPayments = intrest * loanPrinciple;
+  }
 
   return (
     <div className="bg-slate900 text-white py-8 px-5 lg:rounded-bl-xxl lg:p-10 lg:flex flex-col justify-center">
