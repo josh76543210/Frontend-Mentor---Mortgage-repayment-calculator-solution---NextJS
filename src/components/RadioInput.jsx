@@ -8,6 +8,7 @@ function RadioInput({ title, id }) {
     setFormState((prev) => ({
       ...prev,
       mortgageType: mortgageType,
+      results: false,
     }));
   }
 

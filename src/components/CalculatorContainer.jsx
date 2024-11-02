@@ -116,6 +116,7 @@ function CalculatorContainer() {
       setFormState((prev) => ({
         ...prev,
         mortgageAmount: newNum,
+        results: false,
       }));
     }
   }
@@ -126,6 +127,7 @@ function CalculatorContainer() {
       setFormState((prev) => ({
         ...prev,
         mortgageTerm: newNum.replace(".", ""),
+        results: false,
       }));
     }
   }
@@ -136,6 +138,7 @@ function CalculatorContainer() {
       setFormState((prev) => ({
         ...prev,
         intrestRate: newNum,
+        results: false,
       }));
     }
   }
