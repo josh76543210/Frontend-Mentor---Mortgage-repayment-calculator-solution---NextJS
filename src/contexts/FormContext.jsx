@@ -7,6 +7,12 @@ const initialState = {
   intrestRate: "",
   mortgageType: "",
   results: false,
+  errors: {
+    amount: false,
+    term: false,
+    rate: false,
+    type: false,
+  },
 };
 
 const FormContext = createContext(undefined);

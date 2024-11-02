@@ -23,6 +23,12 @@ function CalculatorContainer() {
       intrestRate: "",
       mortgageType: "",
       results: false,
+      errors: {
+        amount: false,
+        term: false,
+        rate: false,
+        type: false,
+      },
     });
   }
 
@@ -82,6 +88,7 @@ function CalculatorContainer() {
           value={formState.mortgageAmount}
           unit="$"
           onChange={handleAmountInput}
+          showError={formState.errors.amount}
         />
         <div className="3sm:flex 3sm:gap-5">
           <TextIntput
@@ -91,6 +98,7 @@ function CalculatorContainer() {
             unit="years"
             unitReverse
             onChange={handleTermInput}
+            showError={formState.errors.term}
           />
           <TextIntput
             title="Intrest Rate"
@@ -99,6 +107,7 @@ function CalculatorContainer() {
             unit="%"
             unitReverse
             onChange={handleRateInput}
+            showError={formState.errors.rate}
           />
         </div>
         <div className="mb-4 lg:mb-8">
@@ -110,6 +119,9 @@ function CalculatorContainer() {
           </label>
           <RadioInput title="Repayment" id="repayment" />
           <RadioInput title="Intrest Only" id="intrest-only" />
+          {formState.errors.type && (
+            <p className="text-red text-xs mb-4">This field is required</p>
+          )}
         </div>
         <button
           type="submit"

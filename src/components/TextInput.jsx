@@ -5,6 +5,7 @@ function TextInput({
   unit,
   onChange = () => {},
   unitReverse = false,
+  showError = false,
   labelClass = "",
   inputClass = "",
   spanClass = "",
@@ -14,7 +15,13 @@ function TextInput({
       <label htmlFor={id} className="text-slate700 mb-2 inline-block">
         {title}
       </label>
-      <div className="flex border rounded-md border-slate700 mb-4 overflow-hidden hover:border-slate900 focus-within:border-lime hover:focus-within:border-lime [&>span]:focus-within:bg-lime [&>span]:focus-within:text-slate900">
+      <div
+        className={`flex border rounded-md border-slate700 overflow-hidden ${
+          showError
+            ? "mb-2 border-red [&>span]:bg-red [&>span]:text-white"
+            : "mb-4 hover:border-slate900 focus-within:border-lime hover:focus-within:border-lime [&>span]:focus-within:bg-lime [&>span]:focus-within:text-slate900"
+        } `}
+      >
         {unitReverse || (
           <span className="bg-slate100 px-4 flex justify-center items-center text-lg text-slate700">
             {unit}
@@ -33,6 +40,9 @@ function TextInput({
           </span>
         )}
       </div>
+      {showError && (
+        <p className="text-red text-xs mb-4">This field is required</p>
+      )}
     </div>
   );
 }
