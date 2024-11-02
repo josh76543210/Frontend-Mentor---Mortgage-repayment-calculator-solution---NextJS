@@ -14,7 +14,7 @@ function TextInput({
       <label htmlFor={id} className="text-slate700 mb-2 inline-block">
         {title}
       </label>
-      <div className="flex border rounded-md border-slate700 mb-4 overflow-hidden hover:border-slate900">
+      <div className="flex border rounded-md border-slate700 mb-4 overflow-hidden hover:border-slate900 focus-within:border-lime hover:focus-within:border-lime [&>span]:focus-within:bg-lime [&>span]:focus-within:text-slate900">
         {unitReverse || (
           <span className="bg-slate100 px-4 flex justify-center items-center text-lg text-slate700">
             {unit}
