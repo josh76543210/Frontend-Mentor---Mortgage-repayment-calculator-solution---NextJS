@@ -17,6 +17,7 @@ const initialState = {
 
 const FormContext = createContext(undefined);
 
+// provides the FromContext to all of its children
 function FormProvider({ children }) {
   const [formState, setFormState] = useState(initialState);
 
@@ -27,6 +28,7 @@ function FormProvider({ children }) {
   );
 }
 
+// Reads the values from inside FormContext
 function useFormData() {
   const context = useContext(FormContext);
   if (context === undefined)

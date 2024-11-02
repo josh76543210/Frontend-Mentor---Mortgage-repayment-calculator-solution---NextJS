@@ -13,6 +13,9 @@ import getDecimalPlaces from "../utils/getDecimalPlaces";
 function CalculatorContainer() {
   const { formState, setFormState } = useFormData();
 
+  /**
+   * Check for any input errors inside the form inputs
+   */
   function checkInputErrors() {
     // check for valid mortgage amount
     if (formState.mortgageAmount === "" || formState.mortgageAmount === "0")
@@ -60,8 +63,10 @@ function CalculatorContainer() {
       }));
   }
 
+  /**
+   * Show the mortgage payment result if there are no errors
+   */
   function showResults() {
-    // show results if there are no errors
     setFormState((prev) =>
       !prev.errors.amount &&
       !prev.errors.term &&
@@ -72,12 +77,20 @@ function CalculatorContainer() {
     );
   }
 
+  /**
+   * Handles the form being submitted
+   * @param {SubmitEvent} e
+   */
   function handleSubmit(e) {
     e.preventDefault();
     checkInputErrors();
     showResults();
   }
 
+  /**
+   * Handles the form being reset
+   * @param {Event} e
+   */
   function handleReset(e) {
     e.preventDefault();
     setFormState({
@@ -95,6 +108,10 @@ function CalculatorContainer() {
     });
   }
 
+  /**
+   * Handles the mortgage amount input being changed
+   * @param {InputEvent} e
+   */
   function handleAmountInput(e) {
     const newNum = e.target.value.trim().replace(/,/g, "");
     if (!isNaN(newNum) && getDecimalPlaces(newNum) < 3) {
@@ -106,6 +123,10 @@ function CalculatorContainer() {
     }
   }
 
+  /**
+   * Handles the mortgage amount term being changed
+   * @param {InputEvent} e
+   */
   function handleTermInput(e) {
     const newNum = e.target.value.trim();
     if (!isNaN(newNum) && getDecimalPlaces(newNum) < 1) {
@@ -117,6 +138,10 @@ function CalculatorContainer() {
     }
   }
 
+  /**
+   * Handles the intrest rate input being changed
+   * @param {InputEvent} e
+   */
   function handleRateInput(e) {
     const newNum = e.target.value.trim();
     if (!isNaN(newNum) && newNum <= 100) {

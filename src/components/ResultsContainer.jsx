@@ -7,11 +7,11 @@ import Image from "next/image";
 function ResultsContainer() {
   const { formState } = useFormData();
 
-  // calculate monthly payments
+  // get numbers from the formState
   const loanPrinciple = Number(formState.mortgageAmount);
   const months = Number(formState.mortgageTerm) * 12;
   const intrest = Number(formState.intrestRate) / 100 / 12;
-
+  // calculate monthly payments
   let monthlyPayments;
   if (formState.mortgageType == "repayment") {
     monthlyPayments =

@@ -4,6 +4,10 @@ import { useFormData } from "../contexts/FormContext";
 function RadioInput({ title, id }) {
   const { formState, setFormState } = useFormData();
 
+  /**
+   * Set the mortgage type in the state.
+   * @param {string} mortgageType - What the mortgage type should be set to.
+   */
   function setMortgageType(mortgageType) {
     setFormState((prev) => ({
       ...prev,
