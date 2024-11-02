@@ -6,13 +6,84 @@ import TextIntput from "./TextInput";
 
 import caculatorIcon from "../images/icon-calculator.svg";
 import Image from "next/image";
+import { useEffect } from "react";
 
 function CalculatorContainer() {
   const { formState, setFormState } = useFormData();
 
+  useEffect(() => {
+    if (
+      formState.errors.amount ||
+      formState.errors.term ||
+      formState.errors.rate ||
+      formState.errors.type
+    )
+      formState.showResults = false;
+  }, [formState]);
+
+  function checkInputErrors() {
+    // check for valid mortgage amount
+    if (formState.mortgageAmount === "" || formState.mortgageAmount === "0")
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, amount: true },
+      }));
+    else
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, amount: false },
+      }));
+    // check for valid mortgage term
+    if (formState.mortgageTerm === "" || formState.mortgageTerm === "0")
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, term: true },
+      }));
+    else
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, term: false },
+      }));
+    // check for valid intrest rate
+    if (formState.intrestRate === "" || formState.intrestRate === "0")
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, rate: true },
+      }));
+    else
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, rate: false },
+      }));
+    // check for valid mortgage type
+    if (formState.mortgageType === "")
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, type: true },
+      }));
+    else
+      setFormState((prev) => ({
+        ...prev,
+        errors: { ...prev.errors, type: false },
+      }));
+  }
+
+  function showResults() {
+    // show results if there are no errors
+    setFormState((prev) =>
+      !prev.errors.amount &&
+      !prev.errors.term &&
+      !prev.errors.rate &&
+      !prev.errors.type
+        ? { ...prev, results: true }
+        : { ...prev, results: false }
+    );
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    setFormState((prev) => ({ ...prev, results: !prev.results }));
+    checkInputErrors();
+    showResults();
   }
 
   function handleReset(e) {
