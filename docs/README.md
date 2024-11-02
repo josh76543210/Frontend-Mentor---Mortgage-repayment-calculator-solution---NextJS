@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/mortgage-repayment-calculator-yT4-ZujTVs](https://www.frontendmentor.io/solutions/mortgage-repayment-calculator-yT4-ZujTVs)
+- Live Site URL: [https://josh76543210-fm-mortgage-calculator.netlify.app/](https://josh76543210-fm-mortgage-calculator.netlify.app/)
 
 ## My process
 
