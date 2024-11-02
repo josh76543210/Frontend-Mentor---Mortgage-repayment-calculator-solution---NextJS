@@ -16,10 +16,10 @@ function TextInput({
         {title}
       </label>
       <div
-        className={`flex border rounded-md border-slate700 overflow-hidden ${
+        className={`flex border rounded-md  overflow-hidden ${
           showError
             ? "mb-2 border-red [&>span]:bg-red [&>span]:text-white"
-            : "mb-4 hover:border-slate900 focus-within:border-lime hover:focus-within:border-lime [&>span]:focus-within:bg-lime [&>span]:focus-within:text-slate900"
+            : "mb-4 border-slate700 hover:border-slate900 focus-within:border-lime hover:focus-within:border-lime [&>span]:focus-within:bg-lime [&>span]:focus-within:text-slate900"
         } `}
       >
         {unitReverse || (
